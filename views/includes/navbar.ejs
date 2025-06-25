@@ -118,8 +118,8 @@
     <!-- Right side: Nav items or hamburger -->
     <div class="nav-menu">
       <% if(!currUser) { %>
-        <a href="/login" class="auth-link">Login</a>
-        <a href="/signup" class="auth-link">Signup</a>
+        <b><a href="/login" class="auth-link">Login</a></b>
+      <b>  <a href="/signup" class="auth-link">Signup</a></b>
       <% } %>
       <% if(currUser) { %>
         <a href="/logout" class="auth-link">Logout</a>
