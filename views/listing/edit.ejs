@@ -1,0 +1,165 @@
+<% layout("/layouts/boilerplate.ejs") %>
+
+<style>
+  body {
+    background-color: #f9f9f9;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  .form-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    min-height: 80vh;
+  }
+
+  .form-container {
+    background: #ffffff;
+    padding: 28px 22px;
+    border: 2px solid #e74c3c;
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    max-width: 460px;
+    width: 100%;
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+  .form-container h3 {
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: #e74c3c;
+  }
+
+  .form-container h3::before,
+  .form-container h3::after {
+    margin: 0 6px;
+  }
+
+  .form-group {
+    margin-bottom: 14px;
+  }
+
+  label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #333;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    background-color: #fdfdfd;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  input:focus,
+  textarea:focus {
+    border-color: #e74c3c;
+    outline: none;
+    box-shadow: 0 0 4px rgba(231, 76, 60, 0.25);
+  }
+
+  textarea {
+    min-height: 80px;
+    resize: vertical;
+  }
+
+  button {
+    width: 100%;
+    padding: 11px;
+    background-color: #e74c3c;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 6px;
+  }
+
+  button:hover {
+    background-color: #c0392b;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (max-width: 500px) {
+    .form-container {
+      padding: 22px 16px;
+    }
+  }
+</style>
+
+<div class="form-wrapper">
+  <div class="form-container">
+    <h3>💖Update Listing💖</h3>
+    <form method="POST" action="/listings/<%= listing._id %>?_method=PUT" enctype="multipart/form-data" class="needs-validation" novalidate>
+
+      <div class="form-group">
+        <label for="title">🏷️ Title</label>
+        <input type="text" name="listing[title]" id="title" value="<%= listing.title %>" required />
+      </div>
+
+      <div class="form-group">
+        <label for="description">🗒️ Description</label>
+        <textarea name="listing[description]" id="description" required><%= listing.description %></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="image">🖼️ Upload image</label>
+        <input name="listing[image]" type="file" id="image"  required />
+      </div>
+
+      <div class="form-group">
+        <label for="price">💰 Price</label>
+        <input type="number" name="listing[price]" id="price" value="<%= listing.price %>" required />
+      </div>
+
+      <div class="form-group">
+        <label for="location">📍 Location</label>
+        <input type="text" name="listing[location]" id="location" value="<%= listing.location %>" required />
+      </div>
+
+      <div class="form-group">
+        <label for="country">🌍 Country</label>
+        <input type="text" name="listing[country]" id="country" value="<%= listing.country %>" required />
+      </div>
+
+      <button type="submit">💾 Save Listing</button>
+    </form>
+  </div>
+</div>
+
+<script>
+  (function () {
+    'use strict';
+    const forms = document.querySelectorAll('.needs-validation');
+    Array.prototype.slice.call(forms).forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  })();
+</script>

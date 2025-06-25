@@ -1,0 +1,100 @@
+<% layout("/layouts/boilerplate") %>
+
+<style>
+  body {
+    background: linear-gradient(to right, #f8f9fa, #f1f3f5);
+  }
+
+  .signup-box {
+    background-color: white;
+    padding: 3rem;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 500px;
+    margin: 4rem auto;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    border: 2px solid #e74c3c;
+  }
+
+  .signup-title {
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    color: #e74c3c;
+    margin-bottom: 2rem;
+  }
+
+  .form-control:focus {
+    box-shadow: 0 0 5px rgba(231, 76, 60, 0.6);
+    border-color: #e74c3c;
+  }
+
+  .btn-custom {
+    background: #e74c3c;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    transition: 0.3s ease;
+  }
+
+  .btn-custom:hover {
+    background: #c0392b;
+  }
+
+  .form-check-label a {
+    color: #2980b9;
+    text-decoration: underline;
+  }
+
+  .form-footer {
+    margin-top: 1rem;
+    text-align: center;
+  }
+
+  .form-footer a {
+    color: #e74c3c;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .form-footer a:hover {
+    text-decoration: underline;
+  }
+</style>
+
+<div class="signup-box">
+  <div class="signup-title">
+    <i class="bi bi-heart-fill"></i> 💖Create Your Account💖
+  </div>
+
+  <!-- Removed 'novalidate' to allow HTML5 validation -->
+  <form action="/signup" method="POST">
+    <div class="mb-3">
+      <label for="username" class="form-label">Username</label>
+      <input type="text" id="username" name="username" class="form-control" placeholder="Ex: Codermubashir" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" id="email" name="email" class="form-control" placeholder=" Ex: Codermubashir@gmail.com" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input type="password" id="password" name="password" class="form-control" placeholder="Create Your password" required>
+    </div>
+
+    <div class="form-check mb-4">
+      <input class="form-check-input" type="checkbox" id="terms" required>
+      <label class="form-check-label" for="terms">
+        I agree to the <a href="#">Terms & Conditions</a>
+      </label>
+    </div>
+
+    <button type="submit" class="btn btn-custom w-100">Sign Up</button>
+  </form>
+
+  <div class="form-footer">
+    Already have an account? <a href="/login">Log in</a>
+  </div>
+</div>

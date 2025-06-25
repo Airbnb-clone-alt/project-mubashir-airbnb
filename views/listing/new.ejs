@@ -1,0 +1,155 @@
+<% layout("/layouts/boilerplate.ejs") %>
+<link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQU-0sgMITwNqzwWbNZfDxjhGmmje755YgLHQ&s">
+
+<style>
+  body {
+    background-color: #f9f9f9;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  .form-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    min-height: 80vh;
+  }
+
+  .form-container {
+    background: #ffffff;
+    padding: 28px 22px;
+    border: 2px solid #e74c3c;
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    max-width: 460px;
+    width: 100%;
+  }
+
+  .form-container h3 {
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: #e74c3c;
+  }
+
+  .form-container h3::before,
+  .form-container h3::after {
+    margin: 0 6px;
+  }
+
+  .form-group {
+    margin-bottom: 14px;
+  }
+
+  label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #333;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    background-color: #fdfdfd;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  input:focus,
+  textarea:focus {
+    border-color: #e74c3c;
+    outline: none;
+    box-shadow: 0 0 4px rgba(231, 76, 60, 0.25);
+  }
+
+  textarea {
+    min-height: 80px;
+    resize: vertical;
+  }
+
+  button {
+    width: 100%;
+    padding: 11px;
+    background-color: #e74c3c;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 6px;
+  }
+
+  button:hover {
+    background-color: #c0392b;
+  }
+
+  @media (max-width: 500px) {
+    .form-container {
+      padding: 22px 16px;
+    }
+  }
+</style>
+
+<div class="form-wrapper">
+  <div class="form-container">
+    <h3>💖Create a New Listing💖</h3>
+    <form method="POST" action="/listings" enctype="multipart/form-data" class="needs-validation" novalidate>
+      
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input name="listing[title]" id="title" type="text" placeholder="Ex: Cozy Cottage" required />
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea name="listing[description]" id="description" placeholder="Short description..." required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="image">Image Upload</label>
+        <input name="listing[image]" id="image" type="file"  required />
+      </div>
+
+      <div class="form-group">
+        <label for="price">Price (₹)</label>
+        <input name="listing[price]" id="price" type="number" placeholder="Ex: 3000" required />
+      </div>
+
+      <div class="form-group">
+        <label for="country">Country</label>
+        <input name="listing[country]" id="country" type="text" placeholder="Ex: India" required />
+      </div>
+
+      <div class="form-group">
+        <label for="location">Location</label>
+        <input name="listing[location]" id="location" type="text" placeholder="Ex:  Manali" required />
+      </div>
+
+      <button type="submit">Add Listing</button>
+    </form>
+  </div>
+</div>
+
+<script>
+  (function () {
+    'use strict';
+    const forms = document.querySelectorAll('.needs-validation');
+    Array.prototype.slice.call(forms)
+      .forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+          if (!form.checkValidity()) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          form.classList.add('was-validated');
+        }, false);
+      });
+  })();
+</script>

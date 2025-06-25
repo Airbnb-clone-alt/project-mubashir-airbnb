@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Airbnb Styled Navbar</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background-color: #f9f9f9;
+    }
+
+    nav {
+      background-color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 30px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      gap: 20px;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 26px;
+      font-weight: bold;
+      color: #ff385c;
+    }
+
+    .nav-link, .btn, .auth-link {
+      text-decoration: none;
+      font-size: 14px;
+      color: #444;
+      transition: 0.2s;
+    }
+
+    .nav-link:hover, .auth-link:hover {
+      color: #ff385c;
+    }
+
+    .btn {
+      background-color: #ff385c;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 30px;
+      font-weight: 500;
+    }
+
+    .btn:hover {
+      background-color: #e03350;
+    }
+
+    .search-box {
+      display: inline-flex;
+      align-items: center;
+      background: white;
+      border-radius: 999px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 10px 20px;
+      gap: 22px;
+      flex: 1;
+      max-width: 700px;
+      justify-content: center;
+    }
+
+    .search-section {
+      display: flex;
+      flex-direction: column;
+      padding: 0 6px;
+      min-width: 70px;
+      text-align: left;
+    }
+
+    .search-section strong {
+      font-size: 12px;
+      color: #222;
+      font-weight: 600;
+    }
+
+    .search-section span {
+      font-size: 12px;
+      color: #777;
+    }
+
+    .divider {
+      width: 1px;
+      background: #ddd;
+      height: 30px;
+    }
+
+    .nav-right {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .auth-link {
+      font-weight: 500;
+    }
+
+    @media (max-width: 1024px) {
+      nav {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .search-box {
+        margin-top: 10px;
+        order: 2;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-left a,
+      .nav-right,
+      .search-box {
+        display: none;
+      }
+    }
+
+     body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Segoe UI', sans-serif;
+    background: #f9f9f9;
+  }
+
+  main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  h1 {
+    font-size: 3rem;
+    color: #1a1a1a;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 1.5rem;
+  }
+
+  a {
+    color: #e91e63;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+
+  a:hover {
+    color: #ff2a6b;
+    text-decoration: underline;
+  }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-left">
+      <div class="logo">Coder<span style="color: #000;">mubashir</span></div>
+      <a href="/listings" class="nav-link">All Listings</a>
+      <a href="/listings/new" class="btn">Add New Listing</a>
+    </div>
+
+    <div class="search-box">
+      <div class="search-section">
+        <strong>Where</strong>
+        <span>Search</span>
+      </div>
+      <div class="divider"></div>
+      <div class="search-section">
+        <strong>Check in</strong>
+        <span>Dates</span>
+      </div>
+      <div class="divider"></div>
+      <div class="search-section">
+        <strong>Check out</strong>
+        <span>Dates</span>
+      </div>
+      <div class="divider"></div>
+      <div class="search-section">
+        <strong>Who</strong>
+        <span>Guests</span>
+      </div>
+    </div>
+
+    <div class="nav-right">
+      <% if(!currUser) { %>
+       
+      <a href="/login" class="auth-link">Login</a>
+      <a href="/signup" class="auth-link">Signup</a>
+      <% } %>
+   <% if(currUser)  { %>   
+      <a href="/logout" class="auth-link">Logout</a>
+      <% } %>
+    </div>
+  </nav>
+<main>
+  <h1>404 - Page Not Found</h1>
+  <p>The page you are looking for does not exist.</p>
+  <a href="/listings">Go to Home</a>
+</main>
+
+</body>
+
+
+
+

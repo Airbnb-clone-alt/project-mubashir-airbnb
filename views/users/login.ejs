@@ -1,0 +1,96 @@
+<% layout("/layouts/boilerplate") %>
+
+<style>
+  body {
+    background: linear-gradient(to right, #f8f9fa, #f1f3f5);
+  }
+
+  .login-box {
+    background-color: white;
+    padding: 3rem;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 500px;
+    margin: 4rem auto;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    border: 2px solid #e74c3c;
+  }
+
+  .login-title {
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    color: #e74c3c;
+    margin-bottom: 2rem;
+  }
+
+  .form-control:focus {
+    box-shadow: 0 0 5px rgba(231, 76, 60, 0.6);
+    border-color: #e74c3c;
+  }
+
+  .btn-custom {
+    background: #e74c3c;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    transition: 0.3s ease;
+  }
+
+  .btn-custom:hover {
+    background: #c0392b;
+  }
+
+  .form-footer {
+    margin-top: 1rem;
+    text-align: center;
+  }
+
+  .form-footer a {
+    color: #e74c3c;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .form-footer a:hover {
+    text-decoration: underline;
+  }
+</style>
+
+<div class="login-box">
+  <div class="login-title">
+    <i class="bi bi-box-arrow-in-right"></i> 💖 Login 💖
+  </div>
+
+  <form action="/login" method="POST">
+    <div class="mb-3">
+      <label for="username" class="form-label">Username</label>
+      <input
+        type="text"
+        id="username"
+        name="username"
+        class="form-control"
+        placeholder="Enter your username"
+        required
+      >
+    </div>
+
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        class="form-control"
+        placeholder="Your password"
+        required
+      >
+    </div>
+
+    <button type="submit" class="btn btn-custom w-100">Login</button>
+  </form>
+
+  <div class="form-footer">
+    Don’t have an account? <a href="/signup">Sign up</a>
+  </div>
+</div>

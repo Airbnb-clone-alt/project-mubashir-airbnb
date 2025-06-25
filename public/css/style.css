@@ -1,0 +1,26 @@
+body {
+    background-color: aliceblue;
+}
+
+#imageInput {
+    height: 18rem;
+    width: 19rem;
+}
+
+.card {
+    border: none !important;
+}
+
+.listing-link {
+    text-decoration: none;
+}
+
+/* 
+.card-img-overlay{ 
+    opacity: 0;
+} */
+
+.card-img-overlay:hover {
+opacity: 0.3;
+background-color: white;
+}
