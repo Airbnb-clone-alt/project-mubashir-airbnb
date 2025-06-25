@@ -2,9 +2,9 @@ body {
     background-color: aliceblue;
 }
 
-#imageInput {
-    height: 20rem;
-    width: 21rem;
+#imageInput {  
+    width: 25rem;
+     height: 20rem;
 }
 
 .card {
