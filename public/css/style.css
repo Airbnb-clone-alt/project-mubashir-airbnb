@@ -1,11 +1,13 @@
 body {
     background-color: aliceblue;
 }
-
-#imageInput {  
-    width: 18rem;
-     height: 17rem;
+.listing-img {
+  width: 18rem;
+  height: 17rem;
+  border-radius: 10px;
+  object-fit: cover; /* ताकि image crop हो पर खराब न दिखे */
 }
+
 
 .card {
     border: none !important;
