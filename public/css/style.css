@@ -2,11 +2,12 @@ body {
     background-color: aliceblue;
 }
 .listing-img {
-  width: 18rem;
+  width: 100%;
   height: 17rem;
   border-radius: 10px;
-  object-fit: cover; /* ताकि image crop हो पर खराब न दिखे */
+  object-fit: cover;
 }
+
 
 
 .card {
